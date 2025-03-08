@@ -1,7 +1,9 @@
 from rest_framework import generics
+from rest_framework.permissions import AllowAny
 from .models import CustomUser
-from .serializers import UserSerializer
+from .serializers import CustomUserSerializer
 
 class UserRegistrationView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = CustomUserSerializer
+    permission_classes = [AllowAny]
